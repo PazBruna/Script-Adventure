@@ -6,12 +6,20 @@ window.onload = function () {
   let spriteSheet = new Image();
   spriteSheet.src = "img/playerUmSprite.png";
 
+  let enemySprite = new Image();
+  enemySprite.src = "img/inimigoUmSprite.png";
+
+  let boxSprite = new Image();
+  boxSprite.src = "img/boxItem.png";
+
   let scene = new Image();
   scene.src = "img/mapaUm.png";
 
   let robot = new Sprite(spriteSheet);
+  let enemy = new Enemy(enemySprite);
+  let box = new Box(boxSprite);
 
-  //setting keyCode
+  //setting keyCode character
   let LEFT = 37,
     UP = 38,
     RIGHT = 39,
@@ -74,6 +82,8 @@ window.onload = function () {
   //loop start function
   function init() {
     robot.posX = robot.posY = 100;
+    enemy.posX = enemy.posY = 470;
+    box.posX = box.posY = 370;
     loop();
   }
 
@@ -96,6 +106,8 @@ window.onload = function () {
       canvas.height
     );
     robot.draw(ctx);
+    enemy.draw(ctx);
+    box.draw(ctx);
   }
 
   function loop() {

@@ -1,6 +1,5 @@
-function Sprite(img) {
+function Enemy(img) {
   //Setting character movements
-  this.mvRight = mvUp = mvDown = mvLeft = false;
   this.srcX = this.srcY = 0;
 
   //Setting character
@@ -8,7 +7,7 @@ function Sprite(img) {
   this.height = 68;
   this.speed = 1;
   this.posX = this.posY = 0;
-  this.countAnim = 0;
+  //this.countAnim = 0;
 
   this.img = img;
 
@@ -25,27 +24,10 @@ function Sprite(img) {
       this.width,
       this.height
     );
-    this.animation();
+    //this.animation();
   };
 
-  //function moviments
-  this.move = function () {
-    if (this.mvRight) {
-      console.log("OBJETO ROBO DIREITA");
-      this.posX += this.speed;
-      this.srcY = this.height * 3;
-    } else if (this.mvLeft) {
-      this.posX -= this.speed;
-      this.srcY = this.height * 2;
-    } else if (this.mvUp) {
-      this.posY -= this.speed;
-      this.srcY = this.height * 1;
-    } else if (this.mvDown) {
-      this.posY += this.speed;
-      this.srcY = this.height * 0;
-    }
-  };
-
+  /*
   //Adding animation to the character's movements
   this.animation = function () {
     if (this.mvRight || this.mvLeft || this.mvDown || this.mvUp) {
@@ -57,4 +39,5 @@ function Sprite(img) {
       this.srcX = Math.floor(this.countAnim / 5) * this.width;
     }
   };
+  */
 }
