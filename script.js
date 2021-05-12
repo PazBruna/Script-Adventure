@@ -4,17 +4,41 @@ window.onload = function () {
 
   //Generates robot character
   let spriteSheet = new Image();
-  spriteSheet.src = "img/playerUmSprite.png";
+  spriteSheet.src = "img/playerSprite.png";
 
   let enemySprite = new Image();
-  enemySprite.src = "img/inimigoUmSprite.png";
+  enemySprite.src = "img/inimigoSprite.png";
 
   let boxSprite = new Image();
-  boxSprite.src = "img/boxItem.png";
+  boxSprite.src = "img/boxJogo.png";
+
+  let speedItem = new Image();
+  speedItem.src = "img/speedItem.png";
+
+  let rangeItem = new Image();
+  rangeItem.src = "img/rangeItem.png";
+
+  let medalha1Item = new Image();
+  medalha1Item.src = "img/medalha1.png";
+
+  let medalha2Item = new Image();
+  medalha2Item.src = "img/medalha2.png";
+
+  let medalha3Item = new Image();
+  medalha3Item.src = "img/medalha3.png";
+
+  let medalha4Item = new Image();
+  medalha4Item.src = "img/medalha4.png";
 
   let scene = new Image();
-  scene.src = "img/mapaUm.png";
+  scene.src = "img/mapaJogo.png";
 
+  let speed = new Item(speedItem);
+  let range = new Item(rangeItem);
+  let medalha1 = new Item(medalha1Item);
+  let medalha2 = new Item(medalha2Item);
+  let medalha3 = new Item(medalha3Item);
+  let medalha4 = new Item(medalha4Item);
   let robot = new Sprite(spriteSheet);
   let enemy = new Enemy(enemySprite);
   let box = new Box(boxSprite);
@@ -83,12 +107,20 @@ window.onload = function () {
   function init() {
     robot.posX = robot.posY = 100;
     enemy.posX = enemy.posY = 470;
-    box.posX = box.posY = 370;
+    box.posX = box.posY = 340;
+    speed.posX = speed.posY = 196;
+    range.posX = range.posY = 415;
+    medalha1.posX = medalha1.posY = 270;
+    medalha2.posX = medalha2.posY = 240;
+    medalha3.posX = medalha3.posY = 370;
+    medalha4.posX = medalha4.posY = 440;
+
     loop();
   }
 
   function update() {
     robot.move();
+    robot.checkCollision(enemy);
   }
 
   //initial draw
@@ -108,6 +140,12 @@ window.onload = function () {
     robot.draw(ctx);
     enemy.draw(ctx);
     box.draw(ctx);
+    speed.draw(ctx);
+    range.draw(ctx);
+    medalha1.draw(ctx);
+    medalha2.draw(ctx);
+    medalha3.draw(ctx);
+    medalha4.draw(ctx);
   }
 
   function loop() {

@@ -3,8 +3,8 @@ function Enemy(img) {
   this.srcX = this.srcY = 0;
 
   //Setting character
-  this.width = 64;
-  this.height = 68;
+  this.width = 40;
+  this.height = 45;
   this.speed = 1;
   this.posX = this.posY = 0;
   //this.countAnim = 0;
